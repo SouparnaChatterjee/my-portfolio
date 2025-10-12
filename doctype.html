@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Firstname Lastname — Portfolio</title>
+  <meta name="description" content="Portfolio — Frontend Developer | Fullstack | Projects" />
+
+  <!-- FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- ICONS (for simple use) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pO1Y6Y2Z6xk7rK2QzY1N5Y2Y..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- GITHUB STATS (replace USERNAME) -->
+  <!-- Example usage in projects section or stats area (img src with your username) -->
+
+  <style>
+    :root{
+      --bg:#0f1724;            /* very dark blue */
+      --card:#0b1220;          /* darker card */
+      --accent:#00b894;        /* green accent */
+      --muted:#9aa4b2;         /* muted text */
+      --glass: rgba(255,255,255,0.03);
+      --max-width:1100px;
+      --gap:18px;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      color: #e6eef8;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,var(--bg),#071022);line-height:1.45}
+    .container{max-width:var(--max-width);margin:0 auto;padding:28px}
+
+    /* NAVBAR */
+    header{position:sticky;top:0;z-index:40;background:linear-gradient(180deg, rgba(10,12,20,0.6), rgba(10,12,20,0.3));backdrop-filter: blur(6px);border-bottom:1px solid rgba(255,255,255,0.03)}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{width:36px;height:36px;border-radius:8px}
+    .brand h1{font-size:16px;margin:0}
+
+    .nav-links{display:flex;gap:16px}
+    .nav-links a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:8px}
+    .nav-links a:hover{color:var(--accent);background:var(--glass)}
+
+    .cta{display:flex;gap:10px}
+    .btn{padding:8px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);text-decoration:none;color:inherit;font-weight:600}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),#00d3a4);color:#05201a}
+
+    /* Hamburger (mobile) */
+    .hamburger{display:none;cursor:pointer}
+    .hamburger .bar{width:22px;height:2px;background:var(--muted);margin:4px 0;border-radius:2px}
+
+    /* HERO / ABOUT */
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:36px;align-items:center;padding:36px 0}
+    .intro h2{margin:0;font-size:28px}
+    .intro p.lead{color:var(--muted);margin-top:10px}
+    .photo{width:320px;height:320px;background:linear-gradient(180deg,#0d1622,#081018);border-radius:12px;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px solid rgba(255,255,255,0.03)}
+    .photo img{width:100%;height:100%;object-fit:cover}
+
+    /* PROJECTS */
+    .section-title{display:flex;align-items:center;justify-content:space-between;margin:18px 0}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--gap)}
+    .card{background:var(--card);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    .card .cover{height:150px;border-radius:8px;overflow:hidden;margin-bottom:12px}
+    .card .title{font-weight:600}
+    .tech{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+    .chip{background:rgba(255,255,255,0.03);padding:6px 8px;border-radius:8px;font-size:13px;color:var(--muted)}
+    .card .links{display:flex;gap:8px}
+
+    /* STATS & CALENDAR */
+    .stats{display:flex;gap:16px;flex-wrap:wrap}
+    .stat-card{flex:1;min-width:220px;background:var(--card);padding:12px;border-radius:12px}
+
+    /* TECH STACK */
+    .tech-grid{display:flex;flex-wrap:wrap;gap:12px}
+    .skill{width:120px;text-align:center;padding:12px;background:rgba(255,255,255,0.02);border-radius:10px}
+    .skill img{width:48px;height:48px;object-fit:contain}
+
+    /* CONTACT */
+    .contact{display:flex;gap:18px;align-items:center}
+    .socials a{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;text-decoration:none;background:rgba(255,255,255,0.02)}
+
+    footer{padding:28px 0;color:var(--muted);font-size:14px;text-align:center}
+
+    /* RESPONSIVE */
+    @media(max-width:1000px){
+      .hero{grid-template-columns:1fr 260px}
+      .grid{grid-template-columns:1fr}
+    }
+    @media(max-width:720px){
+      .container{padding:18px}
+      .nav-links{display:none}
+      .hamburger{display:block}
+      .hero{grid-template-columns:1fr;gap:18px}
+      .photo{width:220px;height:220px;margin:0 auto}
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="brand">
+          <img src="/assets/avatar-circle.png" alt="logo" />
+          <h1>Firstname Lastname</h1>
+        </div>
+
+        <div class="nav-links" id="navLinks">
+          <a href="#home">Home</a>
+          <a href="#about">About Me</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+          <a href="#resume" id="resumeNav">Resume</a>
+        </div>
+
+        <div class="cta">
+          <a class="btn" id="downloadResume">Download Resume</a>
+          <div class="hamburger" id="hamburger" aria-label="open menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO / ABOUT -->
+    <section id="home" class="hero">
+      <div class="intro">
+        <h2>Hi, I am Firstname Lastname — Frontend & MERN student</h2>
+        <p class="lead">I build responsive web apps and beautiful UI. Currently focusing on fullstack projects using React, Node and MongoDB. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        <p>
+          <a href="#projects" class="btn btn-primary">See Projects</a>
+          <a href="#contact" class="btn">Contact me</a>
+        </p>
+      </div>
+      <div class="photo" id="about">
+        <img src="/assets/profile.jpg" alt="Profile photo of Firstname Lastname" />
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="section-title">
+        <h3>Selected Projects</h3>
+        <p class="muted">4 projects that showcase core skills</p>
+      </div>
+
+      <div class="grid">
+        <!-- Project 1 -->
+        <article class="card">
+          <div class="cover"><img src="/assets/project1.png" alt="Project cover" style="width:100%;height:100%;object-fit:cover"/></div>
+          <div class="title">Project One</div>
+          <div class="desc">Short 1-sentence project description that is visible at first glance.</div>
+          <div class="tech">
+            <span class="chip">React</span>
+            <span class="chip">Node</span>
+            <span class="chip">MongoDB</span>
+          </div>
+          <div class="links">
+            <a class="btn" href="https://github.com/USERNAME/project-one" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn" href="https://project-one.vercel.app" target="_blank" rel="noopener">Live / Video</a>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="card">
+          <div class="cover"><img src="/assets/project2.png" alt="Project cover" style="width:100%;height:100%;object-fit:cover"/></div>
+          <div class="title">Project Two</div>
+          <div class="desc">Short 1-sentence project description.
+          </div>
+          <div class="tech">
+            <span class="chip">HTML</span>
+            <span class="chip">CSS</span>
+            <span class="chip">JS</span>
+          </div>
+          <div class="links">
+            <a class="btn" href="https://github.com/USERNAME/project-two" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn" href="https://project-two.netlify.app" target="_blank" rel="noopener">Live</a>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="card">
+          <div class="cover"><img src="/assets/project3.png" alt="Project cover" style="width:100%;height:100%;object-fit:cover"/></div>
+          <div class="title">Project Three</div>
+          <div class="desc">Short 1-sentence project description.
+          </div>
+          <div class="tech">
+            <span class="chip">Java</span>
+            <span class="chip">Spring</span>
+          </div>
+          <div class="links">
+            <a class="btn" href="https://github.com/USERNAME/project-three" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn" href="/assets/project-three-demo.mp4" target="_blank" rel="noopener">Video</a>
+          </div>
+        </article>
+
+        <!-- Project 4 -->
+        <article class="card">
+          <div class="cover"><img src="/assets/project4.png" alt="Project cover" style="width:100%;height:100%;object-fit:cover"/></div>
+          <div class="title">Project Four</div>
+          <div class="desc">Short 1-sentence project description.
+          </div>
+          <div class="tech">
+            <span class="chip">Python</span>
+            <span class="chip">Flask</span>
+          </div>
+          <div class="links">
+            <a class="btn" href="https://github.com/USERNAME/project-four" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn" href="https://drive.google.com/file/d/FILE_ID/view" target="_blank" rel="noopener">Video</a>
+          </div>
+        </article>
+      </div>
+
+      <!-- GITHUB STATS -->
+      <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
+        <div class="stat-card">
+          <img src="https://github-readme-stats.vercel.app/api?username=USERNAME&show_icons=true&theme=dark" alt="github stats" style="width:100%;border-radius:8px"/>
+        </div>
+        <div class="stat-card">
+          <div id="github-calendar"> <!-- calendar will be rendered here --></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECH STACK -->
+    <section id="skills" style="margin-top:28px">
+      <div class="section-title"><h3>Tech & Tools</h3></div>
+      <div class="tech-grid">
+        <div class="skill"><img src="/assets/icons/html5.svg" alt="HTML"><div>HTML</div></div>
+        <div class="skill"><img src="/assets/icons/css3.svg" alt="CSS"><div>CSS</div></div>
+        <div class="skill"><img src="/assets/icons/js.svg" alt="JS"><div>JavaScript</div></div>
+        <div class="skill"><img src="/assets/icons/react.svg" alt="React"><div>React</div></div>
+        <div class="skill"><img src="/assets/icons/node.svg" alt="Node"><div>Node.js</div></div>
+        <div class="skill"><img src="/assets/icons/git.svg" alt="Git"><div>Git</div></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" style="margin-top:28px">
+      <div class="section-title"><h3>Contact</h3></div>
+      <div class="contact">
+        <div>
+          <p><strong>Email:</strong> <a href="mailto:souparnachatterjee98@gmail.com">souparnachatterjee98@gmail.com</a></p>
+          <p><strong>Phone:</strong> +91-XXXXXXXXXX</p>
+          <p class="socials">
+            <a href="https://www.linkedin.com/in/souparna-chatterjee-864177223/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://github.com/SouparnaChatterjee" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+          </p>
+        </div>
+
+        <div style="margin-left:auto">
+          <a class="btn btn-primary" id="downloadResumeBtn">Download Resume</a>
+          <p style="color:var(--muted);font-size:13px;margin-top:6px">Resume file must be named: Firstname-Lastname-Resume.pdf</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">© Firstname Lastname — Built with HTML/CSS/JS • Tested on Chrome, Firefox, Safari, Edge</div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Mobile toggle
+    const hamburger = document.getElementById('hamburger')
+    const navLinks = document.getElementById('navLinks')
+    hamburger && hamburger.addEventListener('click', ()=>{
+      if(navLinks.style.display==='flex') navLinks.style.display='none'
+      else navLinks.style.display='flex'
+    })
+
+    // Resume download behavior
+    function openResume(){
+      // prefer: link to Google Drive view in new tab
+      const gdrive = 'https://drive.google.com/file/d/FILE_ID/view';
+      // fallback: local file download (if you upload to assets)
+      const local = '/assets/Firstname-Lastname-Resume.pdf';
+      window.open(gdrive, '_blank');
+    }
+    document.getElementById('downloadResume')?.addEventListener('click', openResume)
+    document.getElementById('downloadResumeBtn')?.addEventListener('click', openResume)
+
+    // GitHub calendar - loads only if script present
+    (function loadGitHubCalendar(){
+      const s = document.createElement('script');
+      s.src = 'https://cdn.jsdelivr.net/npm/github-calendar@latest/dist/github-calendar.min.js';
+      s.onload = ()=>{
+        if(window.GitHubCalendar){
+          new GitHubCalendar('#github-calendar', 'USERNAME', { responsive: true })
+        }
+      }
+      document.body.appendChild(s)
+      const css = document.createElement('link');
+      css.rel='stylesheet'; css.href='https://cdn.jsdelivr.net/npm/github-calendar@latest/dist/github-calendar-responsive.css';
+      document.head.appendChild(css)
+    })();
+  </script>
+</body>
+</html>
