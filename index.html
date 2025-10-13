@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Souparna Chatterjee — Portfolio</title>
+  <meta name="description" content="Portfolio — Machine Learning & Fullstack Developer | Projects" />
+
+  <!-- FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- ICONS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --accent:#00b894;
+      --muted:#9aa4b2;
+      --glass: rgba(255,255,255,0.03);
+      --max-width:1100px;
+      --gap:18px;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      color: #e6eef8;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,var(--bg),#071022);line-height:1.45}
+    .container{max-width:var(--max-width);margin:0 auto;padding:28px}
+
+    header{position:sticky;top:0;z-index:40;background:linear-gradient(180deg, rgba(10,12,20,0.6), rgba(10,12,20,0.3));backdrop-filter: blur(6px);border-bottom:1px solid rgba(255,255,255,0.03)}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{width:50px;height:50px;border-radius:50%}
+    .brand h1{font-size:16px;margin:0}
+
+    .nav-links{display:flex;gap:16px}
+    .nav-links a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:8px}
+    .nav-links a:hover{color:var(--accent);background:var(--glass)}
+
+    .cta{display:flex;gap:10px}
+    .btn{padding:8px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);text-decoration:none;color:inherit;font-weight:600}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),#00d3a4);color:#05201a}
+
+    .hamburger{display:none;cursor:pointer}
+    .hamburger .bar{width:22px;height:2px;background:var(--muted);margin:4px 0;border-radius:2px}
+
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:36px;align-items:center;padding:36px 0}
+    .intro h2{margin:0;font-size:28px}
+    .intro p.lead{color:var(--muted);margin-top:10px}
+    .photo{width:320px;height:320px;background:linear-gradient(180deg,#0d1622,#081018);border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px solid rgba(255,255,255,0.03)}
+    .photo img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+
+    .section-title{display:flex;align-items:center;justify-content:space-between;margin:18px 0}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--gap)}
+    .card{background:var(--card);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);text-align:center}
+    .card .cover{height:150px;border-radius:8px;overflow:hidden;margin-bottom:12px}
+    .card .cover img{width:100%;height:100%;object-fit:contain}
+    .card .title{font-weight:600;margin-bottom:8px}
+    .tech{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+    .chip{background:rgba(255,255,255,0.03);padding:6px 8px;border-radius:8px;font-size:13px;color:var(--muted)}
+    .card .links{display:flex;gap:8px;justify-content:center}
+
+    .tech-grid{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+    .skill{width:120px;text-align:center;padding:12px;background:rgba(255,255,255,0.02);border-radius:10px}
+    .skill img{width:48px;height:48px;object-fit:contain}
+
+    .contact{display:flex;gap:18px;align-items:center}
+    .socials a{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;text-decoration:none;background:rgba(255,255,255,0.02)}
+
+    footer{padding:28px 0;color:var(--muted);font-size:14px;text-align:center}
+
+    @media(max-width:1000px){.hero{grid-template-columns:1fr 260px}.grid{grid-template-columns:1fr}}
+    @media(max-width:720px){.container{padding:18px}.nav-links{display:none}.hamburger{display:block}.hero{grid-template-columns:1fr;gap:18px}.photo{width:220px;height:220px;margin:0 auto}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="brand">
+          <!-- Globally available girl icon for title bar -->
+          <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Profile Picture" id="dp" />
+          <h1>Souparna Chatterjee</h1>
+        </div>
+
+        <div class="nav-links" id="navLinks">
+          <a href="#home">Home</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <div class="cta">
+          <a class="btn" id="downloadResume">Download Resume</a>
+          <div class="hamburger" id="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO / ABOUT -->
+    <section id="home" class="hero">
+      <div class="intro">
+        <h2>Hi, I am Souparna Chatterjee — ML Enthusiast & Fullstack Developer</h2>
+        <p class="lead">
+          Machine Learning enthusiast with hands-on experience in CV, NLP, and full-stack projects.
+          Built scalable ML systems, contributed to open-source, and solved 550+ coding problems.
+        </p>
+      </div>
+      <div class="photo">
+        <img src="https://github.com/SouparnaChatterjee.png" alt="Profile Picture" />
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="section-title"><h3>Selected Projects</h3></div>
+      <div class="grid">
+        <!-- Financial Dashboard -->
+        <article class="card">
+          <div class="cover"><img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Financial Dashboard"/></div>
+          <div class="title">Financial Dashboard</div>
+          <div class="tech"><span class="chip">React</span><span class="chip">Charts.js</span></div>
+          <div class="links">
+            <a class="btn" href="https://github.com/SouparnaChatterjee/financialDashboard" target="_blank">GitHub</a>
+          </div>
+        </article>
+
+        <!-- Travel Planner -->
+        <article class="card">
+          <div class="cover"><img src="https://cdn-icons-png.flaticon.com/512/854/854878.png" alt="Travel Planner"/></div>
+          <div class="title">Travel Planner</div>
+          <div class="tech"><span class="chip">React</span><span class="chip">Google Maps API</span></div>
+          <div class="links">
+            <a class="btn" href="https://github.com/SouparnaChatterjee/travel-planner" target="_blank">GitHub</a>
+          </div>
+        </article>
+
+        <!-- Chatbot -->
+        <article class="card">
+          <div class="cover"><img src="https://cdn-icons-png.flaticon.com/512/4712/4712520.png" alt="Chatbot"/></div>
+          <div class="title">MaliziaSign Chatbot</div>
+          <div class="tech"><span class="chip">Python</span><span class="chip">ML</span></div>
+          <div class="links">
+            <a class="btn" href="https://github.com/SouparnaChatterjee/LLP_Maliziasign_Chatbot" target="_blank">GitHub</a>
+          </div>
+        </article>
+
+        <!-- E-Commerce -->
+        <article class="card">
+          <div class="cover"><img src="https://cdn-icons-png.flaticon.com/512/1170/1170576.png" alt="E-Commerce App"/></div>
+          <div class="title">Fullstack E-Commerce App</div>
+          <div class="tech"><span class="chip">React</span><span class="chip">Node</span><span class="chip">MongoDB</span></div>
+          <div class="links">
+            <a class="btn" href="https://github.com/SouparnaChatterjee/ECOMMERCE-JAN-MARCH-" target="_blank">GitHub</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- TECH STACK -->
+    <section id="skills" style="margin-top:28px">
+      <div class="section-title"><h3>Technical Skills & Tools</h3></div>
+      <div class="tech-grid">
+        <div class="skill"><img src="https://cdn-icons-png.flaticon.com/512/919/919827.png" alt="C++"><div>C++</div></div>
+        <div class="skill"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968350.png" alt="Python"><div>Python</div></div>
+        <div class="skill"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="JavaScript"><div>JavaScript</div></div>
+        <div class="skill"><img src="https://cdn-icons-png.flaticon.com/512/919/919851.png" alt="React"><div>React.js</div></div>
+        <div class="skill"><img src="https://cdn-icons-png.flaticon.com/512/919/919825.png" alt="Node"><div>Node.js</div></div>
+        <div class="skill"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111288.png" alt="Git"><div>Git</div></div>
+        <div class="skill"><img src="https://cdn-icons-png.flaticon.com/512/919/919831.png" alt="SQL"><div>SQL</div></div>
+        <div class="skill"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968672.png" alt="TensorFlow"><div>TensorFlow</div></div>
+        <div class="skill"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968355.png" alt="PyTorch"><div>PyTorch</div></div>
+        <div class="skill"><img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" alt="MongoDB"><div>MongoDB</div></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" style="margin-top:28px">
+      <div class="section-title"><h3>Contact</h3></div>
+      <div class="contact">
+        <div>
+          <p><strong>Email:</strong> <a href="mailto:souparnachatterjee98@gmail.com">souparnachatterjee98@gmail.com</a></p>
+          <p><strong>Phone:</strong> +91-9831804994</p>
+          <p class="socials">
+            <a href="https://www.linkedin.com/in/souparna-chatterjee-864177223/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://github.com/SouparnaChatterjee" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://leetcode.com/u/Coco_Souparna" target="_blank"><i class="fas fa-code"></i> LeetCode</a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© Souparna Chatterjee — Built with HTML/CSS/JS • Tested on Chrome, Firefox, Safari, Edge</div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger')
+    const navLinks = document.getElementById('navLinks')
+    hamburger && hamburger.addEventListener('click', ()=>{
+      navLinks.style.display = navLinks.style.display==='flex' ? 'none' : 'flex'
+    })
+
+    const downloadResume = () => {
+      window.open('https://drive.google.com/uc?export=download&id=1382YTpaB9-qCetZsOggrP_j0LcyMqJ63', '_blank')
+    }
+    document.getElementById('downloadResume')?.addEventListener('click', downloadResume)
+  </script>
+</body>
+</html>
